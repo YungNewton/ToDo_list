@@ -7,7 +7,7 @@ app.use(body_parser.urlencoded({extended: true}))
 
 app.set('view engine', 'ejs');
 
-var todos =["hey"];
+var todos =[];
 var today = new Date();
 var options = {
     weekDay: "long",
@@ -21,6 +21,8 @@ app.get('/', (req, res) => {
 });
 
 app.post('/',(req, res)=>{
+    var item = req.body.todo
+    todos.push(item)
     res.redirect('/');
 })
 
